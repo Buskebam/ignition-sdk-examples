@@ -16,7 +16,7 @@
         "emitDecoratorMetadata": true,
         "jsx": "react",
         "module": "commonjs",
-        "noEmitOnError": true,
+        "noEmitOnError": false,
         "noImplicitThis": true,
         "noImplicitReturns": false,
         "noImplicitAny": true,

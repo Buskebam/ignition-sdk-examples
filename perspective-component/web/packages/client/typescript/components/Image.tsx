@@ -4,6 +4,8 @@
 
 import * as React from 'react';
 import { Component, ComponentMeta, ComponentProps, SizeObject } from '@inductiveautomation/perspective-client';
+import SignatureCanvas from 'react-signature-canvas';
+import {Button} from 'reactstrap';
 
 
 // the 'key' or 'id' for this component type.  Component must be registered with this EXACT key in the Java side as well
@@ -19,20 +21,18 @@ export interface ImageProps {
 
 
 export class Image extends Component<ComponentProps, any> {
+
+
     render() {
-        // the props we're interested in
 
-        const { props } = this.props;
-        // read the 'url' property provided by the perspective gateway via the component 'props'.
-        const propUrl: string = props.read('url');
-
-        // note that the topmost piece of dom requires the application of events, style and className as shown below
-        // otherwise the layout won't work, or any events configured will fail.
         return (
-            <img
-                {...this.props.emit()}
-                src={propUrl}
-            />
+            <div {...this.props.emit()}>
+                <div style={{display: "flex", flexDirection: "column"}}>
+                    <SignatureCanvas style={{flexGrow: "1"}} penColor="blue" />
+                    <Button variant="primary"> Save </Button>
+                    <Button variant="primary"> Clear </Button>
+                </div>
+            </div>
         );
     }
 }
