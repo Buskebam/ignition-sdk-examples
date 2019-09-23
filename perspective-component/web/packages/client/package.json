@@ -22,7 +22,10 @@
         "react": "^16.8.4",
         "react-dom": "^16.8.4",
         "react-signature-canvas": "^1.0.3",
-        "reactstrap": "^8.0.1"
+        "react-signature-pad-wrapper": "^1.2.6",
+        "reactstrap": "^8.0.1",
+        "signature_pad": "^3.0.0-beta.3",
+        "trim-canvas": "^0.1.2"
     },
     "devDependencies": {
         "@types/history": "^4.6.0",
