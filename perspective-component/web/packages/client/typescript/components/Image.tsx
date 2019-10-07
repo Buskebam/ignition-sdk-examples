@@ -12,23 +12,25 @@ import { bind } from 'bind-decorator';
 // ComponentRegistry provided by the perspective-client API.
 export const COMPONENT_TYPE = "rad.display.image";
 
-
-// this is the shape of the properties we get from the perspective 'props' property tree.
-export interface ImageProps {
-    url: string;   // the url of the image this component should display
-}
-
-
 export class Image extends Component<ComponentProps, any> {
 
-    private sigCanvasRef = React.createRef<HTMLCanvasElement>();
+    private sigCanvasRef = React.createRef<any>();
+
+    @bind
+    clearCanvas()
+    {
+        console.log("The canvas will be cleared");
+
+        this.sigCanvasRef.current.clear();
+    }
+
 
     @bind
     handleDraw()
     {
        console.log("The drawing has ended");
 
-       const result = this.sigCanvasRef.current!.toDataURL("image/png;base64", null);
+       const result = this.sigCanvasRef.current.getTrimmedCanvas().toDataURL("image/png;base64", null);
        this.props.props.write('url', result);
     }
 
